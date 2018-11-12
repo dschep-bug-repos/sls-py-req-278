@@ -1,0 +1,26 @@
+service: test
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: ap-southeast-1
+  environment:
+    JENKINS_TOKEN: ${file(./serverless.env.yml):JENKINS_TOKEN, ''}
+
+functions:
+  check_access:
+    handler: access.main
+    memorySize: 128
+    events:
+      - http:
+          path: /check_access
+          method: get
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
+    pythonBin: python3.6

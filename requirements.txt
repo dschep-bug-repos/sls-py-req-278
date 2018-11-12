@@ -1,0 +1,5 @@
+openshift
+kubernetes
+python-jenkins
+urllib3==1.21.1
+requests
