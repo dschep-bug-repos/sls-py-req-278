@@ -3,5 +3,6 @@
 ```
 git clone https://github.com/dschep-bug-repos/sls-py-req-278
 cd sls-py-req-278
-./node_modules/.bin/sls deploy
+npm i
+npx sls deploy
 ```
